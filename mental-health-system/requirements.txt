@@ -1,2 +1,2 @@
-python server.py // start
-python main.py // run
+Flask
+requests
