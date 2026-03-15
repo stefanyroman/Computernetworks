@@ -3,7 +3,7 @@ def calculate_mood(stressed, happy, motivation):
 
     if score > 5:
         return "Positive"
-    elif score >= 0"
+    elif score >= 0:"
         return "Neutral"
     else:
         return "Needs Help - Check in :( "
