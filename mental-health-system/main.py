@@ -1,30 +1,40 @@
+import sys
 from client import send_checkin
+from questionnaires import depression, anxiety, adhd, ptsd, bipolar
 
+# Will update this file once the algorithm and formulas are determined
 
 def main():
-    print("Hello :) This is your Mental Health Check-In!")
+    print("Hello! Welcome to the Mental Health Check-In System!")
+    print("1. Depression Check-In")
+    print("2. Anxiety Check-In")
+    print("3. ADHD Check-In")
+    print("4. PTSD Check-In")
+    print("5. Bipolar Disorder Check-In")
+    print("6. Exit")
 
-    # Instead of asking users to give a number on each variable, they answer common psychiatric evaluation questions
-    # Based on the PHQ-9 instrument
-    print("When answering the following questions, please keep in mind what each scale number means:")
-    print("1: Not at all, 2: Rarely, 3: Several Days, 4: More Than Half The Days, 5: Nearly Every Day")
+    choice = input("Which check-in will you be completing?: ")
 
-    q1 = int(input("On a scale of 1-5, how often do you find it hard to focus or complete tasks?: "))
-    q2 = int(input("On a scale of 1-5, how often do you experience little interest or pleasure in doing things?: "))
-    q3 = int(input("On a scale of 1-5, how often do you have trouble falling or staying asleep, or sleeping too much?: "))
-    q4 = int(input("On a scale of 1-5, how often do you have a poor appetite or overeat?: "))
-    q5 = int(input("On a scale of 1-5, how often do you feel bad about yourself or feel like a failure?: "))
-    q6 = int(input("On a scale of 1-5, how often do you feel tired or have little energy?: "))
-    q7 = int(input("On a scale of 1-5, how often do you become easily annoyed or irritable?: "))
-    q8 = int(input("On a scale of 1-5, how often are you able to do something you enjoy?: "))
-    q9 = int(input("On a scale of 1-5, how often does something make you feel satisfied, laugh, or smile?: "))
-
-    # Questions are added to their most relevant variables to make a total used for each in algorithm.py
-    stressed = (q1+q3+q4+q7)
-    happy = ((6-q2)+(6-q5)+(6-q7)+q8+q9) # To keep a high total for happy as good, low amount answers are subtracted
-    motivation = ((6-q2)+(6-q5)+(6-q6)) # Same as above
-
-    send_checkin(stressed, happy, motivation)
+    if choice == "1":
+        s, h, m = depression.questions()
+        send_checkin(s, h, m, "depression")
+    elif choice == "2":
+        s, h, m = anxiety.questions()
+        send_checkin(s, h, m, "anxiety")
+    elif choice == "3":
+        s, h, m = adhd.questions()
+        send_checkin(s, h, m, "adhd")
+    elif choice == "4":
+        s, h, m = ptsd.questions()
+        send_checkin(s, h, m, "ptsd")
+    elif choice == "5":
+        s, h, m = bipolar.questions()
+        send_checkin(s, h, m, "bipolar")
+    elif choice == "6":
+        sys.exit()
+    else:
+        print("Invalid choice. Please try again.")
+        main()
 
 if __name__ == "__main__":
     main()

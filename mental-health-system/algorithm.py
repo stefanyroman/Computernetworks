@@ -1,6 +1,7 @@
-def calculate_mood(stressed, happy, motivation):
-    # (See main.py for more context on the score update)
-    # Adjusted the inputs used in main.py to expand the algorithmic aspect of the project; likely needs more work done
+def calculate_mood(stressed, happy, motivation, test_id):
+    # Currently haven't adjusted the algorithm for the different test types,
+    # Each test type could possibly have different formulas for the variables
+    # because they are scaled differently and focus on different aspects of mental health
 
     score = (happy + motivation) - stressed
 
