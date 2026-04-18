@@ -1,10 +1,7 @@
 def questions():
     # Based on the PCL-5 instrument
 
-    # print("When answering the following questions, please keep in mind what each scale number means:")
-    # print("0: Not At All, 1: A Little Bit, 2: Moderately, 3: Quite A Bit, 4: Extremely")
-    #
-    # print("In the past month, how much were you bothered by:")
+    prompt = "In the past month, how much were you bothered by:"
 
     info = [
         {"id": 1,
@@ -71,4 +68,4 @@ def questions():
 
     scale = "0: Not At All, 1: A Little Bit, 2: Moderately, 3: Quite A Bit, 4: Extremely"
 
-    return info, scale
+    return info, scale, prompt

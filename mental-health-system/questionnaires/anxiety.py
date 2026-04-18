@@ -1,10 +1,7 @@
 def questions():
     # Based on the GAD-7 instrument
 
-    # print("When answering the following questions, please keep in mind what each scale number means:")
-    # print("0: Not At All, 1: Several Days, 2: More Than Half The Days, 3: Nearly Every Day")
-    #
-    # print("Over the last 2 weeks, how often have you been bothered by any of the following problems?:")
+    prompt = "Over the last 2 weeks, how often have you been bothered by any of the following problems?:"
 
     info = [
         {"id": 1,
@@ -32,4 +29,4 @@ def questions():
 
     scale = "0: Not At All, 1: Several Days, 2: More Than Half The Days, 3: Nearly Every Day"
 
-    return info, scale
+    return info, scale, prompt

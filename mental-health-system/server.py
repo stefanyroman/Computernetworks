@@ -25,9 +25,9 @@ def test_page(test_id):
     if not module:
         return redirect(url_for("home"))
 
-    questions_list, scale = module.questions()
+    questions_list, scale,prompt = module.questions()
 
-    return render_template("check_in.html", questions=questions_list, scale=scale, test_id=test_id)
+    return render_template("check_in.html", questions=questions_list, scale=scale, prompt=prompt, test_id=test_id)
 
 @app.route("/checkin", methods=["POST"])
 def checkin():

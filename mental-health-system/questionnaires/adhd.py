@@ -1,11 +1,7 @@
 def questions():
     # Based on the ASRS-v1.1 instrument
 
-    # print("When answering the following questions, please keep in mind what each scale number means:")
-    # print("0: Never, 1: Rarely, 2: Sometimes, 3: Often, 4: Very Often")
-    #
-    # print("Best describe how you have felt and conducted yourself over the past 6 months:")
-
+    prompt = "Best describe how you have felt and conducted yourself over the past 6 months:"
 
     info = [
         {"id": 1,
@@ -66,4 +62,4 @@ def questions():
 
     scale = "0: Never, 1: Rarely, 2: Sometimes, 3: Often, 4: Very Often"
 
-    return info, scale
+    return info, scale, prompt
