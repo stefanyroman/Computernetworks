@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Check-In</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <span class="navbar-title">Mental Health Check-In System</span>
+        <span class="navbar-subtitle">University of Arkansas at Little Rock</span>
+    </nav>
+    <div class="page-container">
+        <h1>Welcome to the Mental Health Check-In System</h1> <!-- Added as a test to make sure the page is viewable on a browser -->
+        <h2>Select a Check-In</h2>
+        <ul>
+            {% for test in tests %}
+            <li>
+                <a class="test-link" href="{{url_for('test_page', test_id=test)}}">{{ display_names[test] }} Check-In</a>
+            </li>
+            {% endfor %}
+        </ul>
+
+    </div>
+</body>
+</html>

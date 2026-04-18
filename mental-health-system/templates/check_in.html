@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Check-In</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+<body>
+    <div class="page-container">
+        
+        <h1>{{test_id|capitalize}} Check-In</h1>
+
+        <p class="subtitle">{{ prompt}}</p>
+        <p>Scale: {{scale}}</p>
+
+        <form action="{{url_for('checkin')}}" method="POST">
+            <input type="hidden" name="test_id" value="{{test_id}}">
+
+            {% for q in questions %}
+                <div class="question-block">
+                    <p>{{q["id"]}}, {{q["text"]}}</p>
+
+                    <label for="{{ q['relevant_mood']}}_{{q['id']}}">Answer: </label>
+                    <input type="number" id="{{q['relevant_mood']}}_{{q['id']}}" name="{{q['relevant_mood']}}_{{q['id']}}" required>
+
+                    <br><br>
+                </div>
+            {% endfor %}
+                <button type="submit">Submit Check-In</button>
+        </form>
+
+        <br>
+        <a class="back-link" href="{{url_for('home')}}"> Back Home</a>
+    </div> 
+    
+</body>
+</html>

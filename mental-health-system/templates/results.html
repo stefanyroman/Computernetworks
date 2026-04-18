@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+<body>
+    <div class="page-container">
+        <h1>Your Check-In Results</h1>
+        <div class="result-box">
+            <p>Your result is: <strong>{{mood}}</strong></p>    
+        </div>
+
+        <a href="{{url_for('home')}}">Go Back Home</a>
+    </div>
+
+    
+</body>
+</html>
