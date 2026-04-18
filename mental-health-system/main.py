@@ -1,84 +1,40 @@
+import sys
 from client import send_checkin
+from questionnaires import depression, anxiety, adhd, ptsd, bipolar
 
+# Will update this file once the algorithm and formulas are determined
 
 def main():
-    print("Hello :) This is your Mental Health Check-In!")
+    print("Hello! Welcome to the Mental Health Check-In System!")
+    print("1. Depression Check-In")
+    print("2. Anxiety Check-In")
+    print("3. ADHD Check-In")
+    print("4. PTSD Check-In")
+    print("5. Bipolar Disorder Check-In")
+    print("6. Exit")
 
-    # Instead of asking users to give a number on each variable, they answer common psychiatric evaluation questions
-    # Based on the PHQ-9 instrument
-    print("When answering the following questions, please keep in mind what each scale number means:")
-    print("1: Not at all, 2: Rarely, 3: Several Days, 4: More Than Half The Days, 5: Nearly Every Day")
+    choice = input("Which check-in will you be completing?: ")
 
-    while True:
-        q1 = (input("On a scale of 1-5, how often do you find it hard to focus or complete tasks?: "))
-        if q1 in ["1","2","3","4","5"]:
-             q1= int(q1)
-             break
-        else:
-            print("!ERROR! Please choose a valid input.")
-    while True:
-        q2 = (input("On a scale of 1-5, how often do you experience little interest or pleasure in doing things?: "))
-        if q2 in ["1","2","3","4","5"]:
-            q2= int(q2)
-            break
-        else:
-            print("!ERROR! Please choose a valid input.")
-    while True:
-        q3 = (input("On a scale of 1-5, how often do you have trouble falling or staying asleep, or sleeping too much?: "))
-        if q3 in ["1","2","3","4","5"]:
-            q3= int(q3)
-            break
-        else:
-            print("!ERROR! Please choose a valid input.")
-    while True:
-        q4 = (input("On a scale of 1-5, how often do you have a poor appetite or overeat?: "))
-        if q4 in ["1","2","3","4","5"]:
-            q4= int(q4)
-            break
-        else:
-            print("!ERROR! Please choose a valid input.")
-    while True:
-        q5 = (input("On a scale of 1-5, how often do you feel bad about yourself or feel like a failure?: "))
-        if q5 in ["1","2","3","4","5"]:
-            q5= int(q5)
-            break
-        else:
-            print("!ERROR! Please choose a valid input.")
-    while True:
-        q6 = (input("On a scale of 1-5, how often do you feel tired or have little energy?: "))
-        if q6 in ["1","2","3","4","5"]:
-            q6= int(q6)
-            break
-        else:
-            print("!ERROR! Please choose a valid input.")
-    while True:
-        q7 = (input("On a scale of 1-5, how often do you become easily annoyed or irritable?: "))
-        if q7 in ["1","2","3","4","5"]:
-            q7= int(q7)
-            break
-        else:
-            print("!ERROR! Please choose a valid input.")
-    while True:
-        q8 = (input("On a scale of 1-5, how often are you able to do something you enjoy?: "))
-        if q8 in ["1","2","3","4","5"]:
-            q8= int(q8)
-            break
-        else:
-            print("!ERROR! Please choose a valid input.")
-    while True:
-        q9 = (input("On a scale of 1-5, how often does something make you feel satisfied, laugh, or smile?: "))
-        if q9 in ["1","2","3","4","5"]:
-            q9= int(q9)
-            break
-        else:
-            print("!ERROR! Please choose a valid input.")
-
-     # Questions are added to their most relevant variables to make a total used for each in algorithm.py
-    stressed = (q1+q3+q4+q7)
-    happy = ((6-q2)+(6-q5)+(6-q7)+q8+q9) # To keep a high total for happy as good, low amount answers are subtracted
-    motivation = ((6-q2)+(6-q5)+(6-q6)) # Same as above
-
-    send_checkin(stressed, happy, motivation)
+    if choice == "1":
+        s, h, m = depression.questions()
+        send_checkin(s, h, m, "depression")
+    elif choice == "2":
+        s, h, m = anxiety.questions()
+        send_checkin(s, h, m, "anxiety")
+    elif choice == "3":
+        s, h, m = adhd.questions()
+        send_checkin(s, h, m, "adhd")
+    elif choice == "4":
+        s, h, m = ptsd.questions()
+        send_checkin(s, h, m, "ptsd")
+    elif choice == "5":
+        s, h, m = bipolar.questions()
+        send_checkin(s, h, m, "bipolar")
+    elif choice == "6":
+        sys.exit()
+    else:
+        print("Invalid choice. Please try again.")
+        main()
 
 if __name__ == "__main__":
     main()
