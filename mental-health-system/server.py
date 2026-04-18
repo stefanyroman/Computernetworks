@@ -14,10 +14,16 @@ TEST_URL = {
     "ptsd": ptsd,
     "bipolar": bipolar
 }
-
+DISPLAY_NAMES = {
+    "depression": "Depression",
+    "anxiety": "Anxiety",
+    "adhd": "ADHD",
+    "ptsd": "PTSD",
+    "bipolar": "Bipolar Disorder"
+}
 @app.route("/")
 def home():
-    return render_template("home.html", tests=TEST_URL.keys())
+    return render_template("home.html", tests=TEST_URL.keys(), display_names=DISPLAY_NAMES)
 
 @app.route("/questionnaires/<test_id>")
 def test_page(test_id):

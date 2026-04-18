@@ -1,7 +1,7 @@
-body {
+﻿body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: paleturquoise;
+    background-color: #e8edf5;
     color:gray;
 }
 
@@ -12,6 +12,7 @@ body {
     background-color: white;
     border-radius: 18px;
     box-shadow: 0 4px 14px black;
+    border-top: 4px solid #2d6a9f;
 }
 
 h1 {
@@ -43,11 +44,21 @@ a:hover {
 .test-link {
     display: block;
     padding: 14px 18px;
-    background-color: rgb(172, 209, 192);
-    color: rgb(19, 34, 34);
+    background-color: #f4f7fb;
+    color: #1e3a5f;
     border-radius: 12px;
     font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    border-radius: 8px;
 }
+.test-link::after {
+     content: "►";
+     font-size: 16px;
+     color: #2d6a9f;
+    }
 
 .test-link:hover {
     background-color: rgb(204, 204, 204);
@@ -111,4 +122,30 @@ button:hover {
     border-left: 5px solid #8eb7b0;
     border-radius: 10px;
     font-size: 18px;
+}
+
+.navbar {
+    background-color: #1e3a5f;
+    padding: 14px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.navbar-title {
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.navbar-subtitle {
+    color: #a8c4e0;
+    font-size: 13px;
+}
+
+h2 {
+    color: #2d6a9f;
+    border-bottom: 2px solid #ccd9e8;
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+
 }
