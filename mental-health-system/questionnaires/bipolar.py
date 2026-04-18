@@ -1,10 +1,7 @@
 def questions():
     # Based on the MDQ instrument
 
-    # print("When answering the following questions, please keep in mind what each scale number means:")
-    # print("0: No, 1: Yes")
-    #
-    # print("Has there ever been a period of time when you were not your usual self and…")
+    prompt = "Has there ever been a period of time when you were not your usual self and…"
 
     info = [
         {"id": 1,
@@ -47,4 +44,4 @@ def questions():
 
     scale = "0: No, 1: Yes"
 
-    return info, scale
+    return info, scale, prompt
