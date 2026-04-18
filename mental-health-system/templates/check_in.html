@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
 </head>
 <body>
+    <nav class="navbar">
+        <span class="navbar-title">Mental Health Check-In System</span>
+        <a class="navbar-home" href="{{ url_for('home') }}"> Home</a>
+    </nav>
     <div class="page-container">
         
         <h1>{{test_id|capitalize}} Check-In</h1>
@@ -19,7 +23,7 @@
 
             {% for q in questions %}
                 <div class="question-block">
-                    <p>{{q["id"]}}, {{q["text"]}}</p>
+                    <p>{{q["id"]}}. {{q["text"]}}</p>
 
                     <label for="{{ q['relevant_mood']}}_{{q['id']}}">Answer: </label>
                     <input type="number" id="{{q['relevant_mood']}}_{{q['id']}}" name="{{q['relevant_mood']}}_{{q['id']}}" required>

@@ -99,7 +99,7 @@ button {
     width: 100%;
     padding: 14px;
     margin-top: 24px;
-    background-color: #8eb7b0;
+    background-color: #1e3a5f;
     color: white;
     border: none;
     border-radius: 12px;
@@ -159,4 +159,13 @@ h2 {
     border-radius: 12px;
     margin-top: 1px;
     margin-bottom: 0;
+}
+.navbar-home {
+    color: #a8c4e0;
+    font-size: 14px;
+    text-decoration: none;
+}
+.navbar-home:hover {
+    text-decoration: underline;
+    color: #ffffff;
 }
