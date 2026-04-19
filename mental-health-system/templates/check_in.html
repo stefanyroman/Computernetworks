@@ -1,45 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- basic page setup -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- title shown on browser tab -->
     <title>Mental Health Check-In</title>
+    <!-- connects the CSS file for styling -->
     <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
 </head>
 <body>
+    <!-- top navigation bar -->
     <nav class="navbar">
         <span class="navbar-title">Mental Health Check-In System</span>
+        <!-- link to go back to home page -->
         <a class="navbar-home" href="{{ url_for('home') }}"> Return Home</a>
     </nav>
     <div class="page-container">
 
+        <!-- shows the name of the selected test -->
         <h1>{{ display_names[test_id]}} Check-In</h1>
+        <!-- shows error message if input is invalid -->
         {% if error%}
         <p class="error">{{ error }}</p>
         {% endif %}
 
+        <!-- shows instructions and answer scale -->
         <p class="subtitle">{{ prompt}}</p>
         <p>Scale: {{scale}}</p>
 
+        <!-- form sends answers to the server -->
         <form action="{{url_for('checkin')}}" method="POST">
+
+            <!-- hidden field to keep track of which test was taken -->
             <input type="hidden" name="test_id" value="{{test_id}}">
 
+            <!-- loop through all questions -->
             {% for q in questions %}
             <div class="question-block">
+
+                <!-- display question number and text -->
                 <p>{{q["id"]}}. {{q["text"]}}</p>
 
+                <!-- input box for user's answer -->
                 <label for="{{ q['relevant_mood']}}_{{q['id']}}">Answer: </label>
+                <!-- number input with min and max limits -->
                 <input type="number" id="{{q['relevant_mood']}}_{{q['id']}}" name="{{q['relevant_mood']}}_{{q['id']}}" min="0" max="{{max_val}}" required>
 
                 <br><br>
             </div>
             {% endfor %}
+            <!-- submit button -->
             <button type="submit">Submit Check-In</button>
         </form>
 
         <br>
+        <!-- link back to home page -->
         <a class="back-link" href="{{url_for('home')}}"> Back Home</a>
-    </div> 
-    
+    </div>
+
 </body>
 </html>
