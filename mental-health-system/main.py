@@ -9,9 +9,9 @@ from questionnaires import depression, anxiety, adhd, ptsd, bipolar
 def assessment(specific_checkin):
     questions, scale, prompt = specific_checkin.questions()
 
-    print("\n" + prompt)
     print("\nWhen answering the following questions, use this scale:")
     print(scale, "\n")
+    print("\n" + prompt)
 
     #total for each category
     stressed = 0
