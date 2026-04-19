@@ -1,23 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- basic page setup -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- title shown on browser tab -->
     <title>Mental Health Check-In</title>
+    <!-- connects the CSS file for styling -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
+    <!-- top navigation bar -->
     <nav class="navbar">
         <span class="navbar-title">Mental Health Check-In System</span>
+        <!-- subtitle shown in the navbar -->
         <span class="navbar-subtitle">University of Arkansas at Little Rock</span>
     </nav>
+    <!-- main image displayed on the homepage -->
     <img src="{{url_for('static', filename='mental_health.jpg')}}" alt="Mental Health Care" class="hero-image" />
     <div class="page-container">
+        <!-- main welcome message -->
         <h1>Welcome to the Mental Health Check-In System</h1> <!-- Added as a test to make sure the page is viewable on a browser -->
+        <!-- section title -->
         <h2>Select a Check-In</h2>
+        <!-- list of available tests -->
         <ul>
+            <!-- loop through all tests passed from Flask -->
             {% for test in tests %}
             <li>
+                <!-- link to the selected test page -->
                 <a class="test-link" href="{{url_for('test_page', test_id=test)}}">{{ display_names[test] }} Check-In</a>
             </li>
             {% endfor %}
