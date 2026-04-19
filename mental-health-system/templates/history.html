@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Check-In History</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            margin: 0;
+            padding: 30px;
+            color: #222;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            margin: 0;
+            color: #1f4e79;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #1f4e79;
+            font-weight: bold;
+            margin-left: 18px;
+        }
+
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        .table-container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 12px 14px;
+            text-align: left;
+            border-bottom: 1px solid #e3e8ef;
+        }
+
+        th {
+            background: #1f4e79;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background: #f8fbff;
+        }
+
+        tr:hover {
+            background: #eef5fc;
+        }
+
+        .empty-message {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <h1>{{ username }}'s Check-In History</h1>
+
+        <div class="nav-links">
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('logout') }}">Logout</a>
+        </div>
+    </div>
+
+    {% if records %}
+    <div class="table-container">
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Test</th>
+                <th>Stressed</th>
+                <th>Happy</th>
+                <th>Motivation</th>
+                <th>Result</th>
+                <th>Created At</th>
+            </tr>
+
+            {% for row in records %}
+            <tr>
+                <td>{{ row["id"] }}</td>
+                <td>{{ display_names.get(row["test_id"], row["test_id"]) }}</td>
+                <td>{{ row["stressed"] }}</td>
+                <td>{{ row["happy"] }}</td>
+                <td>{{ row["motivation"] }}</td>
+                <td>{{ row["mood"] }}</td>
+                <td>{{ row["created_at"] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    {% else %}
+    <div class="empty-message">
+        <p>No check-in history yet.</p>
+    </div>
+    {% endif %}
+</body>
+</html>

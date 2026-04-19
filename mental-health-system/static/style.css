@@ -154,6 +154,11 @@ button:hover {
     align-items: center;
     margin-bottom: 0;
 }
+/* LEFT SIDE (title + subtitle stacked) */
+.nav-left {
+    display: flex;
+    flex-direction: column;
+}
 /* main title in navbar */
 .navbar-title {
     color: #ffffff;
@@ -195,4 +200,59 @@ h2 {
 .navbar-home:hover {
     text-decoration:solid;
     color: #ffffff;
+}
+/* ACCOUNT MENU (top right) */
+.account-menu {
+    position: relative;
+}
+
+/* USER BUTTON */
+.account-btn {
+    background-color: #2d6a9f;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* DROPDOWN CONTAINER */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 40px;
+    background-color: white;
+    min-width: 220px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    z-index: 10;
+}
+
+/* DROPDOWN ITEMS */
+.dropdown-content a,
+.account-label {
+    display: block;
+    padding: 12px 14px;
+    color: #1e3a5f;
+    text-decoration: none;
+}
+
+/* HOVER EFFECT */
+.dropdown-content a:hover {
+    background-color: #bcd8f0;
+}
+
+/* USER LABEL */
+.account-label {
+    font-size: 13px;
+    color: gray;
+    border-bottom: 1px solid #d9e3e1;
+}
+
+/* SHOW DROPDOWN */
+.account-menu:hover .dropdown-content {
+    display: block;
 }
