@@ -1,21 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- title shown on browser tab -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- title shown on browser tab -->
     <title>Results</title>
+    <!-- connects the CSS file for styling -->
     <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
 </head>
 <body>
+    <!-- container for all page content -->
     <div class="page-container">
+        <!-- page title -->
         <h1>Your Check-In Results</h1>
+        <!-- box that displays the result -->
         <div class="result-box">
-            <p>Your result is: <strong>{{mood}}</strong></p>    
+            <!-- shows the result sent from Flask -->
+            <p>Your result is: <strong>{{mood}}</strong></p>
         </div>
-
+        <!-- link to go back to the homepage -->
         <a href="{{url_for('home')}}">Go Back Home</a>
     </div>
 
-    
+
 </body>
 </html>
