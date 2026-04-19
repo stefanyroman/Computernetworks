@@ -1,8 +1,13 @@
+# returns the depression questionnaire data
 def questions():
     # Based on the PHQ-9 instrument
-
+    # instructions shown before the questions
     prompt = "Over the last 2 weeks, how often have you been bothered by any of the following problems?:"
 
+    # list of questions
+    # id = question number
+    # text = the question
+    # relevant_mood = category used for scoring
     info = [
         {"id": 1,
          "text": "Little interest or pleasure in doing things",
@@ -32,7 +37,9 @@ def questions():
          "text": "Thoughts that you would be better off not existing or hurting yourself in some way",
          "relevant_mood": "happy"}
     ]
-
+    
+    # answer scale shown to the user
     scale = "0: Not At All, 1: Several Days, 2: More Than Half The Days, 3: Nearly Every Day"
-
+   
+    # return all questionnaire data
     return info, scale, prompt
