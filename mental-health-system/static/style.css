@@ -48,13 +48,14 @@ a {
 /* underline links when hovered */
 a:hover {
     text-decoration: underline;
+    background-color: #bcd8f0;
 }
 
 /* styling for each test link on homepage */
 .test-link {
     display: block;
     padding: 14px 18px;
-    background-color: #f4f7fb;
+    background-color: #bcd8f0;
     color: #1e3a5f;
     border-radius: 12px;
     font-weight: bold;
@@ -75,9 +76,9 @@ a:hover {
 
 /* hover effect for test links */
 .test-link:hover {
-    background-color: rgb(204, 204, 204);
-    text-decoration: none;
-}
+      background-color: #1b70ad;
+      text-decoration: none;
+    }
 /* space above form */
 form {
     margin-top: 24px;
@@ -126,7 +127,7 @@ button {
 
 /* button hover effect */
 button:hover {
-    background-color: #7ca7a0;
+    background-color: #2d6a9f;
 }
 
 /* back link spacing */
@@ -140,7 +141,7 @@ button:hover {
     margin-top: 24px;
     padding: 20px;
     background-color: white;
-    border-left: 5px solid #8eb7b0;
+    border-left: 5px solid #2d6a9f;
     border-radius: 10px;
     font-size: 18px;
 }

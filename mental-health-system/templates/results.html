@@ -10,14 +10,42 @@
     <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
 </head>
 <body>
+    <!-- top navigation bar -->
+    <nav class="navbar">
+        <!-- site title shown in navbar -->
+        <span class="navbar-title">Mental Health Check-In System</span>
+        <!-- link to return to homepage -->
+        <a class="navbar-home" href="{{ url_for('home') }}">Return Home</a>
+    </nav>
     <!-- container for all page content -->
     <div class="page-container">
         <!-- page title -->
         <h1>Your Check-In Results</h1>
+        
         <!-- box that displays the result -->
         <div class="result-box">
             <!-- shows the result sent from Flask -->
-            <p>Your result is: <strong>{{mood}}</strong></p>
+            <p>Your result is: <strong style="color: #2d6a9f;">{{mood}}</strong></p>
+            <!-- shows clinical description based on severity level -->
+            <!-- descriptions based on peer-reviewed scoring guidelines -->
+            {% if mood == "minimal" %}
+            <!-- minimal symptoms - PHQ-9/GAD-7/PCL-5 below clinical threshold -->
+            <p>Your responses suggest minimal symptoms. These are unlikely to be clinically significant. Continue to monitor how you feel over time.</p>
+            {% elif mood == "mild" %}
+            <!-- mild symptoms - watchful waiting recommended per PHQ-9 guidelines -->
+            <p>Your responses suggest mild symptoms. Consider monitoring your mood and speaking with someone you trust. A follow-up check-in is recommended.</p>
+            {% elif mood == "moderate" %}
+            <!-- moderate symptoms - treatment plan recommended per PHQ-9/GAD-7 -->
+            <p>Your responses suggest moderate symptoms that may be affecting daily functioning. Consider speaking with a mental health professional or counselor.</p>
+            {% elif mood == "moderately severe" %}
+            <!-- moderately severe - active treatment recommended per PHQ-9 -->
+            <p>Your responses suggest moderately severe symptoms. Active treatment with therapy or pharmacotherapy is recommended. Please reach out to a mental health professional.</p>
+            {% elif mood == "severe" %}
+            <!-- severe symptoms - immediate referral recommended per PHQ-9/GAD-7 -->
+            <p>Your responses suggest severe symptoms. Please seek help immediately. You can call or text <strong>988</strong> for the Suicide and Crisis Lifeline.</p>
+            {% endif %}
+            <!-- disclaimer - this is not a clinical diagnosis -->
+            <p><em>This tool is for informational and educational purposes only and is not a clinical diagnosis. Always consult a licensed mental health professional.</em></p>
         </div>
         <!-- link to go back to the homepage -->
         <a href="{{url_for('home')}}">Go Back Home</a>

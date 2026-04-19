@@ -71,7 +71,9 @@ def checkin():
 
         #go through every answer submited in the form
         for key, value in request.form.items():
-            #check which category the answer belongs to 
+            # skip the hidden test_id field, only process answer fields
+            if key == "test_id":
+                 continue
             for relevant_mood in totals.keys():
                 if key.startswith(relevant_mood):
                     answer = int(value)
