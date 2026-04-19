@@ -1,8 +1,13 @@
+# returns the PTSD questionnaire data
 def questions():
     # Based on the PCL-5 instrument
-
+    # instructions shown before the questions
     prompt = "In the past month, how much were you bothered by:"
 
+    # list of questions
+    # id = question number
+    # text = the question
+    # relevant_mood = category used for scoring
     info = [
         {"id": 1,
          "text": "Repeated, disturbing, and unwanted memories of a stressful experience?",
@@ -65,7 +70,7 @@ def questions():
          "text": "Trouble falling or staying asleep?",
          "relevant_mood": "stressed"}
     ]
-
+     # answer scale shown to the user
     scale = "0: Not At All, 1: A Little Bit, 2: Moderately, 3: Quite A Bit, 4: Extremely"
-
+    # return all questionnaire data
     return info, scale, prompt
