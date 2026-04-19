@@ -1,3 +1,5 @@
+#import from storage
+from storage import init_db, save_checkin, get_checkins_by_user
 #import flask tools
 from flask import Flask, request, jsonify, render_template, url_for, redirect, session
 from functools import wraps
