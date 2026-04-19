@@ -10,12 +10,28 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <!-- top navigation bar -->
-    <nav class="navbar">
+<!-- top navigation bar -->
+<nav class="navbar">
+    <div class="nav-left">
         <span class="navbar-title">Mental Health Check-In System</span>
-        <!-- subtitle shown in the navbar -->
         <span class="navbar-subtitle">University of Arkansas at Little Rock</span>
-    </nav>
+    </div>
+
+    <!-- account dropdown -->
+    <div class="account-menu">
+        <button class="account-btn">
+            {{ session["username"] }} ▼
+        </button>
+
+        <div class="dropdown-content">
+            <div class="account-label">
+                Signed in as {{ session["username"] }}
+            </div>
+            <a href="{{ url_for('history') }}">Previous Submissions</a>
+            <a href="{{ url_for('logout') }}">Logout</a>
+        </div>
+    </div>
+</nav>
     <!-- main image displayed on the homepage -->
     <img src="{{url_for('static', filename='mental_health.jpg')}}" alt="Mental Health Care" class="hero-image" />
     <div class="page-container">
