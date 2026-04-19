@@ -1,10 +1,13 @@
-﻿body {
+﻿/* styles for the whole page */
+body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
     background-color: #e8edf5;
     color:gray;
 }
 
+
+/* main container that centers the content */
 .page-container {
     max-width: 850px;
     margin: 50px auto;
@@ -15,32 +18,39 @@
     border-top: 4px solid #2d6a9f;
 }
 
+/* main heading style */
 h1 {
     margin-top: 0;
     text-align: center;
     color: rgb(19, 34, 34)
 }
 
+/* subtitle text styling */
 .subtitle {
     text-align: center;
     color: rgb(2, 26, 2)
 }
 
+/* removes default bullet points from lists */
 ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
+/* general link style */
 a {
     color: rgb(43, 119, 119);
     text-decoration: none;
 }
 
+
+/* underline links when hovered */
 a:hover {
     text-decoration: underline;
 }
 
+/* styling for each test link on homepage */
 .test-link {
     display: block;
     padding: 14px 18px;
@@ -55,21 +65,25 @@ a:hover {
     border-radius: 8px;
     border: 1px solid #c0d0e4;
 }
+
+/* adds arrow symbol to test links */
 .test-link::after {
      content: "►";
      font-size: 16px;
      color: #2d6a9f;
     }
 
+/* hover effect for test links */
 .test-link:hover {
     background-color: rgb(204, 204, 204);
     text-decoration: none;
 }
-
+/* space above form */
 form {
     margin-top: 24px;
 }
 
+/* box around each question */
 .question-block{
     margin-bottom: 20px;
     padding: 16px;
@@ -78,14 +92,16 @@ form {
     border-radius: 12px;
 }
 
+/* looks like unused class, but keeps spacing for question text */
 .questionn-text{
     margin-top: 0;
 }
 
+/* label styling */
 label {
     font-weight: 600;
 }
-
+/* number input box styling */
 input[type="number"] {
     width: 90px;
     padding: 8px;
@@ -94,7 +110,7 @@ input[type="number"] {
     border-radius: 8px;
     font-size: 14px;
 }
-
+/* submit button styling */
 button {
     width: 100%;
     padding: 14px;
@@ -108,14 +124,18 @@ button {
     cursor: pointer;
 }
 
+/* button hover effect */
 button:hover {
     background-color: #7ca7a0;
 }
 
+/* back link spacing */
 .back-link {
     display: inline-block;
     margin-top: 20px;
 }
+
+/* result display box */
 .result-box {
     margin-top: 24px;
     padding: 20px;
@@ -124,7 +144,7 @@ button:hover {
     border-radius: 10px;
     font-size: 18px;
 }
-
+/* navigation bar at top */
 .navbar {
     background-color: #1e3a5f;
     padding: 14px 32px;
@@ -133,17 +153,20 @@ button:hover {
     align-items: center;
     margin-bottom: 0;
 }
+/* main title in navbar */
 .navbar-title {
     color: #ffffff;
     font-size: 18px;
     font-weight: 600;
 }
 
+/* subtitle in navbar */
 .navbar-subtitle {
     color: #a8c4e0;
     font-size: 13px;
 }
 
+/* secondary heading style */
 h2 {
     color: #2d6a9f;
     border-bottom: 2px solid #ccd9e8;
@@ -151,6 +174,7 @@ h2 {
     margin-bottom: 16px;
 
 }
+/* main image styling */
 .hero-image {
     width: 100%;
     height: 220px;
@@ -160,11 +184,13 @@ h2 {
     margin-top: 1px;
     margin-bottom: 0;
 }
+/* home link in navbar */
 .navbar-home {
     color: #ffffff;
     font-size: 15px;
     text-decoration: underline;
 }
+/* hover effect for navbar home link */
 .navbar-home:hover {
     text-decoration:solid;
     color: #ffffff;
