@@ -1,8 +1,13 @@
+# returns the bipolar questionnaire data
 def questions():
     # Based on the MDQ instrument
-
+# instructions shown before the questions
     prompt = "Has there ever been a period of time when you were not your usual self and…"
 
+    # list of questions
+    # id = question number
+    # text = the question
+    # relevant_mood = category used for scoring
     info = [
         {"id": 1,
          "text": "you felt so good or so hyper that other people thought you were not your normal self or you were so hyper that you got into trouble?",
@@ -41,7 +46,8 @@ def questions():
          "text": "spending money got you or your family in trouble?",
          "relevant_mood": "stressed"}
     ]
-
+    # this test uses yes/no answers
     scale = "0: No, 1: Yes"
 
+    # return all questionnaire data
     return info, scale, prompt
