@@ -1,5 +1,6 @@
 #import flask tools
-from flask import Flask, request, jsonify, render_template, url_for, redirect
+from flask import Flask, request, jsonify, render_template, url_for, redirect, session
+from functools import wraps
 #import calculated results
 from algorithm import calculate_mood
 #import questionnaires
@@ -11,6 +12,9 @@ from questionnaires import depression, anxiety, adhd, ptsd, bipolar
 #creates the Flask app
 app = Flask(__name__)
 
+#stores login state in the session
+app.secret_key = "synapsenet-demo-secret-key"
+
 #connects each test name to correct questionnaire file
 TEST_URL = {
     "depression": depression,
@@ -19,7 +23,7 @@ TEST_URL = {
     "ptsd": ptsd,
     "bipolar": bipolar
 }
-# correct name display for each test
+#correct name display for each test
 DISPLAY_NAMES = {
     "depression": "Depression",
     "anxiety": "Anxiety",
@@ -28,8 +32,49 @@ DISPLAY_NAMES = {
     "bipolar": "Bipolar Disorder"
 }
 
+#user credentials for authentication
+USERS = {
+    "admin": "synapse123",
+    "demo": "demo123"
+}
+
+#protects routes by requiring the user to be logged in
+def login_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if not session.get("logged_in"):
+            return redirect(url_for("login"))
+        return f(*args, **kwargs)
+    return decorated_function
+    
+#handles user login and stores login state in the session
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    error = None
+
+    if request.method == "POST":
+        username = request.form.get("username", "").strip()
+        password = request.form.get("password", "").strip()
+
+        if username in USERS and USERS[username] == password:
+            session["logged_in"] = True
+            session["username"] = username
+            return redirect(url_for("home"))
+        else:
+            error = "Invalid username or password."
+
+    return render_template("login.html", error=error)
+
+
+#logs the user out by clearing the session
+@app.route("/logout")
+def logout():
+    session.clear()
+    return redirect(url_for("login"))
+
 #this is the homepage, which will display the different questionnaires to choose from
 @app.route("/")
+@login_required
 def home():
     return render_template("home.html", tests=TEST_URL.keys(), display_names=DISPLAY_NAMES)
 
