@@ -28,9 +28,9 @@ def calculate_mood(stressed, happy, motivation, test_id):
                 feedback.append("like you might need some inspiration")
 
             if feedback:
-                return "Your depression level is minimal, but you seem " + " ".join(feedback)
+                return "Minimal. You seem " + " ".join(feedback)
             else:
-                return "Your depression level is minimal."
+                return "Minimal."
 
         elif raw_score in range(5,10):
             if stressed in range(4,7):
@@ -41,9 +41,9 @@ def calculate_mood(stressed, happy, motivation, test_id):
                 feedback.append("to lack motivation")
 
             if feedback:
-                return "Your depression level is mild, and you seem " + " ".join(feedback)
+                return "Mild. You seem " + " ".join(feedback)
             else:
-                return "Your depression level is mild."
+                return "Mild."
 
         elif raw_score in range(10,15):
             if stressed in range(4,7):
@@ -54,9 +54,9 @@ def calculate_mood(stressed, happy, motivation, test_id):
                 feedback.append("pretty low on energy")
 
             if feedback:
-                return "Your depression level is moderate, and you seem " + " ".join(feedback)
+                return "Moderate. You seem " + " ".join(feedback)
             else:
-                return "Your depression level is moderate."
+                return "Moderate."
 
         elif raw_score in range(15,20):
             if stressed in range(7,10):
@@ -67,9 +67,9 @@ def calculate_mood(stressed, happy, motivation, test_id):
                 feedback.append("demotivated")
 
             if feedback:
-                return "Your depression level is moderately severe, and you seem " + " ".join(feedback)
+                return "Moderately severe. You seem " + " ".join(feedback)
             else:
-                return "Your depression level is moderately severe."
+                return "Moderately severe."
 
         else:
             if stressed in range(7,10):
@@ -80,9 +80,9 @@ def calculate_mood(stressed, happy, motivation, test_id):
                 feedback.append("downhearted")
 
             if feedback:
-                return "Your depression level is severe, and you seem " + " ".join(feedback)
+                return "Severe. You seem " + " ".join(feedback)
             else:
-                return "Your depression level is severe."
+                return "Severe."
 
     elif test_id == "anxiety":
         if raw_score in range(0,5):
@@ -94,9 +94,9 @@ def calculate_mood(stressed, happy, motivation, test_id):
                 feedback.append("a little uneasy")
 
             if feedback:
-                return "Your anxiety level is minimal, but you seem " + " ".join(feedback)
+                return "Minimal. You seem " + " ".join(feedback)
             else:
-                return "Your anxiety level is minimal."
+                return "Minimal."
 
         elif raw_score in range(5,10):
             if stressed in range(6,12):
@@ -105,9 +105,9 @@ def calculate_mood(stressed, happy, motivation, test_id):
                 feedback.append("kinda antsy")
 
             if feedback:
-                return "Your anxiety level is mild, and you seem " + " ".join(feedback)
+                return "Mild. You seem " + " ".join(feedback)
             else:
-                return "Your anxiety level is mild."
+                return "Mild."
 
         elif raw_score in range(10,15):
             if stressed in range(12,19):
@@ -116,9 +116,9 @@ def calculate_mood(stressed, happy, motivation, test_id):
                 feedback.append("pent-up")
 
             if feedback:
-                return "Your anxiety level is moderate, and you seem " + " ".join(feedback)
+                return "Moderate. You seem " + " ".join(feedback)
             else:
-                return "Your anxiety level is moderate."
+                return "Moderate."
 
         else:
             if stressed in range(12,19):
@@ -127,9 +127,9 @@ def calculate_mood(stressed, happy, motivation, test_id):
                 feedback.append("agitated")
 
             if feedback:
-                return "Your anxiety level is severe, and you seem " + " ".join(feedback)
+                return "Severe. You seem " + " ".join(feedback)
             else:
-                return "Your anxiety level is severe."
+                return "Severe."
 
     elif test_id == "adhd":
         if raw_score in range(0,24):
@@ -143,9 +143,9 @@ def calculate_mood(stressed, happy, motivation, test_id):
                 feedback.append("to get carried away with things")
 
             if feedback:
-                return "Your ADHD level is mild, but you seem " + " ".join(feedback)
+                return "Mild. You seem " + " ".join(feedback)
             else:
-                return "Your ADHD level is mild."
+                return "Mild."
 
         elif raw_score in range(24,48):
             if motivation in range(15,30):
@@ -156,9 +156,9 @@ def calculate_mood(stressed, happy, motivation, test_id):
                 feedback.append("overwhelmingly enthusiastic")
 
             if feedback:
-                return "Your ADHD level is moderate, and you seem " + " ".join(feedback)
+                return "Moderate. You seem " + " ".join(feedback)
             else:
-                return "Your ADHD level is moderate."
+                return "Moderate."
 
         else:
             if motivation in range(30,45):
@@ -169,9 +169,9 @@ def calculate_mood(stressed, happy, motivation, test_id):
                 feedback.append("hyped up")
 
             if feedback:
-                return "Your ADHD level is severe, and you seem " + " ".join(feedback)
+                return "Severe. You seem " + " ".join(feedback)
             else:
-                return "Your ADHD level is severe."
+                return "Severe."
 
     elif test_id == "ptsd":
         if raw_score in range(0,20):
@@ -185,9 +185,9 @@ def calculate_mood(stressed, happy, motivation, test_id):
                 feedback.append("like you have moments of withdrawal")
 
             if feedback:
-                return "Your PTSD level is minimal, but you seem " + " ".join(feedback)
+                return "Minimal. You seem " + " ".join(feedback)
             else:
-                return "Your PTSD level is minimal."
+                return "Minimal."
 
         elif raw_score in range(20,40):
             if stressed in range(12,24):
@@ -198,9 +198,9 @@ def calculate_mood(stressed, happy, motivation, test_id):
                 feedback.append("a bit withdrawn")
 
             if feedback:
-                return "Your PTSD level is mild, and you seem " + " ".join(feedback)
+                    return "Mild. You seem " + " ".join(feedback)
             else:
-                return "Your PTSD level is mild."
+                return "Mild."
 
         elif raw_score in range(40,60):
             if stressed in range(24,37):
@@ -211,9 +211,9 @@ def calculate_mood(stressed, happy, motivation, test_id):
                 feedback.append("pretty numb")
 
             if feedback:
-                return "Your PTSD level is moderate, and you seem " + " ".join(feedback)
+                return "Moderate. You seem " + " ".join(feedback)
             else:
-                return "Your PTSD level is moderate."
+                return "Moderate."
 
         else:
             if stressed in range(24,37):
@@ -224,9 +224,9 @@ def calculate_mood(stressed, happy, motivation, test_id):
                 feedback.append("desensitized")
 
             if feedback:
-                return "Your PTSD level is severe, and you seem " + " ".join(feedback)
+                return "Severe. You seem " + " ".join(feedback)
             else:
-                return "Your PTSD level is severe."
+                return "Severe."
 
     elif test_id == "bipolar":
         if raw_score in range(0,4):
@@ -240,9 +240,9 @@ def calculate_mood(stressed, happy, motivation, test_id):
                 feedback.append("a little impulsive")
 
             if feedback:
-                return "Your bipolar symptom level is mild, but you seem " + " ".join(feedback)
+                return "Mild. You seem " + " ".join(feedback)
             else:
-                return "Your bipolar symptom level is mild."
+                return "Mild."
 
         elif raw_score in range(4,8):
             if stressed == 1:
@@ -253,9 +253,9 @@ def calculate_mood(stressed, happy, motivation, test_id):
                 feedback.append("pretty spontaneous")
 
             if feedback:
-                return "Your bipolar symptom level is moderate, and you seem " + " ".join(feedback)
+                return "Moderate. You seem " + " ".join(feedback)
             else:
-                return "Your bipolar symptom level is moderate."
+                return "Moderate."
 
         else:
             if stressed in range(2,4):
@@ -266,8 +266,8 @@ def calculate_mood(stressed, happy, motivation, test_id):
                 feedback.append("pretty impetuous")
 
             if feedback:
-                return "Your bipolar symptom level is severe, and you seem " + " ".join(feedback)
+                return "Severe. You seem " + " ".join(feedback)
             else:
-                return "Your bipolar symptom level is severe."
+                return "Severe."
     else:
         return "Invalid test ID"
