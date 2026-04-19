@@ -1,8 +1,14 @@
+# return adhd questionnaire info, scale, and prompt
 def questions():
     # Based on the ASRS-v1.1 instrument
-
+    #short instructions before question
     prompt = "Best describe how you have felt and conducted yourself over the past 6 months:"
 
+    # list of all questions
+    # each question has:
+    # id = question number
+    # text = the actual question
+    # relevant_mood = which category this question belongs to
     info = [
         {"id": 1,
          "text": "How often do you have trouble wrapping up final details of a project once the challenging parts have been done?",
@@ -60,6 +66,8 @@ def questions():
          "relevant_mood": "motivation"}
     ]
 
+     # answer scale shown to the user
     scale = "0: Never, 1: Rarely, 2: Sometimes, 3: Often, 4: Very Often"
 
+    # return everything needed for the questionnaire
     return info, scale, prompt
