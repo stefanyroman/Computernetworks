@@ -1,8 +1,14 @@
+# returns the anxiety questionnaire data
 def questions():
     # Based on the GAD-7 instrument
-
+    # instructions shown before the questions
     prompt = "Over the last 2 weeks, how often have you been bothered by any of the following problems?:"
 
+    # list of all questions
+    # each question has:
+    # id = question number
+    # text = the actual question
+    # relevant_mood = which category this question belongs to
     info = [
         {"id": 1,
          "text": "Feeling nervous, anxious, or on edge",
@@ -27,6 +33,8 @@ def questions():
          "relevant_mood": "stressed"}
     ]
 
+    # answer scale shown to the user
     scale = "0: Not At All, 1: Several Days, 2: More Than Half The Days, 3: Nearly Every Day"
 
+    # return all questionnaire data
     return info, scale, prompt
