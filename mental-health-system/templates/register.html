@@ -1,79 +1,88 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>SynapseNet Login</title>
+    <!-- basic page setup -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- title shown on browser tab -->
+    <title>SynapseNet Register</title>
+    <!-- connects the CSS file for styling -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
     <style>
+        /* center the registration box on the page */
         body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #1f4e79, #4f8bc9);
-            margin: 0;
-            height: 100vh;
-
             display: flex;
             justify-content: center;
             align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #1f4e79, #4f8bc9);
+            margin: 0;
+            font-family: Arial, sans-serif;
         }
 
+        /* white card container */
         .login-container {
             background: white;
             padding: 35px;
             border-radius: 12px;
             width: 340px;
-
             box-shadow: 0 10px 25px rgba(0,0,0,0.2);
         }
 
-        h2 {
+        /* app name at top */
+        .logo {
             text-align: center;
-            margin-bottom: 20px;
+            font-weight: bold;
             color: #1f4e79;
+            font-size: 18px;
+            margin-bottom: 10px;
         }
 
+        /* page heading */
+        h2 {
+            text-align: center;
+            color: #1f4e79;
+            margin-bottom: 20px;
+        }
+
+        /* form field labels */
         label {
             font-weight: bold;
             font-size: 14px;
         }
 
+        /* text input fields */
         input {
             width: 100%;
             padding: 10px;
             margin-top: 5px;
             margin-bottom: 15px;
-
             border: 1px solid #ccc;
             border-radius: 6px;
-
             font-size: 14px;
+            box-sizing: border-box;
         }
 
-        input:focus {
-            outline: none;
-            border-color: #1f4e79;
-            box-shadow: 0 0 5px rgba(31, 78, 121, 0.4);
-        }
-
+        /* submit button */
         button {
             width: 100%;
             padding: 12px;
-
             background: #1f4e79;
             color: white;
-
             border: none;
             border-radius: 6px;
-
             font-size: 15px;
             font-weight: bold;
             cursor: pointer;
-
-            transition: 0.2s ease;
         }
 
+        /* button hover effect */
         button:hover {
             background: #163a5a;
         }
 
+        /* error message */
         .error {
             color: red;
             text-align: center;
@@ -81,61 +90,50 @@
             font-size: 14px;
         }
 
-        .demo {
+        /* link to login page */
+        .login-link {
+            text-align: center;
             margin-top: 15px;
-            padding: 10px;
-
-            background: #f4f7fb;
-            border-radius: 6px;
-
             font-size: 13px;
-            text-align: center;
-            color: #444;
-        }
-
-        .logo {
-            text-align: center;
-            font-weight: bold;
-            color: #1f4e79;
-            margin-bottom: 10px;
-            font-size: 18px;
         }
     </style>
 </head>
 
 <body>
-
     <div class="login-container">
 
+        <!-- app name -->
         <div class="logo">SynapseNet</div>
 
-        <h2>Login</h2>
+        <!-- page title -->
+        <h2>Create Account</h2>
 
+        <!-- show error message if registration fails -->
         {% if error %}
             <div class="error">{{ error }}</div>
         {% endif %}
 
+        <!-- registration form posts to the same route -->
         <form method="POST">
 
+            <!-- username field -->
             <label>Username</label>
             <input type="text" name="username" required>
 
+            <!-- password field -->
             <label>Password</label>
             <input type="password" name="password" required>
 
-            <button type="submit">Log In</button>
+            <!-- submit button -->
+            <button type="submit">Create Account</button>
 
         </form>
 
-        <div class="demo">
-            Demo login:<br>
-            <strong>admin</strong> / <strong>synapse123</strong>
-            <div class="login-link" style="text-align:center;margin-top:10px;font-size:13px;">
-                Don't have an account? <a href= "{{url_for('register')}}">Create one now</a>
-            </div>
+        <!-- link back to login for existing users -->
+        <div class="login-link">
+            Already have an account? <a href="{{ url_for('login') }}">Log In</a>
         </div>
 
     </div>
-
 </body>
 </html>

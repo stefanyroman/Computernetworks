@@ -57,6 +57,32 @@ def login_required(f):
     return decorated_function
 
 
+
+#handles user registration and stores login state in the session
+@app.route("/register",methods=["GET", "POST"])
+def register():
+    error =None
+    if request.method == "POST":
+        #get username and password from form, and strip whitespace
+        username = request.form.get("username", "").strip()
+        password = request.form.get("password", "").strip()
+        #check if username is already taken
+        if not username or not password:
+            error = "Username and password are required."
+            #make sure neither field is empty
+        elif username in USERS:
+            error = "Username already exists."
+        else:
+            #save new user to the users dictionary
+            USERS[username] = password
+            #log them in automatically
+            session["logged_in"] = True
+            session["username"] = username
+            #send to homepage after registration
+            return redirect(url_for("home"))
+        # show the register page with any error message
+    return render_template("register.html", error=error)
+
 #handles user login and stores login state in the session
 @app.route("/login", methods=["GET", "POST"])
 def login():
