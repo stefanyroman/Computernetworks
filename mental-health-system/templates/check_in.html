@@ -12,8 +12,11 @@
         <a class="navbar-home" href="{{ url_for('home') }}"> Return Home</a>
     </nav>
     <div class="page-container">
-        
-        <h1>{{test_id|capitalize}} Check-In</h1>
+
+        <h1>{{ display_names[test_id]}} Check-In</h1>
+        {% if error%}
+        <p class="error">{{ error }}</p>
+        {% endif %}
 
         <p class="subtitle">{{ prompt}}</p>
         <p>Scale: {{scale}}</p>
@@ -22,16 +25,16 @@
             <input type="hidden" name="test_id" value="{{test_id}}">
 
             {% for q in questions %}
-                <div class="question-block">
-                    <p>{{q["id"]}}. {{q["text"]}}</p>
+            <div class="question-block">
+                <p>{{q["id"]}}. {{q["text"]}}</p>
 
-                    <label for="{{ q['relevant_mood']}}_{{q['id']}}">Answer: </label>
-                    <input type="number" id="{{q['relevant_mood']}}_{{q['id']}}" name="{{q['relevant_mood']}}_{{q['id']}}" required>
+                <label for="{{ q['relevant_mood']}}_{{q['id']}}">Answer: </label>
+                <input type="number" id="{{q['relevant_mood']}}_{{q['id']}}" name="{{q['relevant_mood']}}_{{q['id']}}" min="0" max="{{max_val}}" required>
 
-                    <br><br>
-                </div>
+                <br><br>
+            </div>
             {% endfor %}
-                <button type="submit">Submit Check-In</button>
+            <button type="submit">Submit Check-In</button>
         </form>
 
         <br>
