@@ -1,7 +1,11 @@
+#import sys so we ccan exit program
 import sys
+#import function to send results to server
 from client import send_checkin
+#import qustionaire files
 from questionnaires import depression, anxiety, adhd, ptsd, bipolar
 
+#run1 questionnaire
 def assessment(specific_checkin):
     questions, scale, prompt = specific_checkin.questions()
 
@@ -9,10 +13,12 @@ def assessment(specific_checkin):
     print("\nWhen answering the following questions, use this scale:")
     print(scale, "\n")
 
+    #total for each category
     stressed = 0
     happy = 0
     motivation = 0
 
+    #go through each question and get user input
     for q in questions:
         print(f"{q['id']}: {q['text']}")
         answer = int(input("Your answer: "))
@@ -22,6 +28,7 @@ def assessment(specific_checkin):
         # which would make it difficult to invert values here like initially planned, so I've decided that the relevant moods
         # should be considered categories in this context rather than say how happy, motivated, or stressed a user actually is
 
+        # add to correct category
         if q["relevant_mood"] == "stressed":
             stressed += answer
         elif q["relevant_mood"] == "happy":
@@ -31,8 +38,10 @@ def assessment(specific_checkin):
 
         print()
 
+    #sent total back
     return stressed, happy, motivation
 
+#main menu
 def main():
     print("Hello! Welcome to the Mental Health Check-In System!")
     print("1. Depression Check-In")
@@ -42,8 +51,10 @@ def main():
     print("5. Bipolar Disorder Check-In")
     print("6. Exit")
 
+    #ask user which test they want
     choice = input("Which check-in will you be completing?: ")
 
+    #run matchin questionaire 
     if choice == "1":
         s, h, m = assessment(depression)
         send_checkin(s, h, m, "depression")
@@ -65,5 +76,6 @@ def main():
         print("Invalid choice. Please try again.")
         main()
 
+#start program
 if __name__ == "__main__":
     main()
