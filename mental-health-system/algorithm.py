@@ -9,7 +9,7 @@ weights = {
     "ptsd": {"stressed": 0.60, "happy": 0.20, "motivation": 0.20},
     "bipolar": {"stressed": 0.20, "happy": 0.50, "motivation": 0.30}
 }
-
+#calcualte final results
 def calculate_mood(stressed, happy, motivation, test_id):
 
     # To allow the test to give feedback that aligns with both the original tests and the mood categories,
